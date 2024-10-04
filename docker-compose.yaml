@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nest-pm4:
+    build: ./
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.development
+    depends_on:
+      - postgresdb
+
+  postgresdb:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env.development
+  
+  migrate:
+    build: ./
+    command: npm run migration:run
+    env_file:
+      - .env.development
+    depends_on:
+      - postgresdb
+
+volumes:
+  pgdata:
