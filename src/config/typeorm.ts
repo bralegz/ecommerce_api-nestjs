@@ -14,7 +14,7 @@ const config = {
   password: process.env.DB_PASSWORD,
   autoLoadEntities: true,
   dropSchema: false,
-  synchronize: false, // creates the tables based on the defined entities if they doesn't exist
+  synchronize: true, // creates the tables based on the defined entities if they doesn't exist
   logging: false,
   // entities: ['dist/**/*.entity{.ts,.js}'],
   // migrations: ['dist/migrations/*{.js,.ts}'],
