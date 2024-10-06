@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
-  nest-pm4:
-    build: ./
+  app:
+    image: bralegz/nest-ecommerce:latest
     ports:
       - "3000:3000"
     env_file:
@@ -18,7 +16,7 @@ services:
       - .env.development
   
   migrate:
-    build: ./
+    image: bralegz/nest-ecommerce:latest
     command: npm run migration:run
     env_file:
       - .env.development
